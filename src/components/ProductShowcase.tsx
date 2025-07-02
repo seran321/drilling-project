@@ -50,27 +50,27 @@ const ProductShowcase = () => {
   ];
 
   return (
-    <section id="products" className="py-20 bg-slate-800">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+    <section id="products" className="py-16 lg:py-20 bg-slate-800">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-12 lg:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             Our <span className="text-orange-500">Drilling Machines</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
             Engineered for extreme conditions, built for maximum performance. 
             Discover our range of industrial-grade drilling solutions.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center mb-16 lg:mb-20">
           <motion.div 
-            className="h-96"
+            className="h-64 sm:h-80 lg:h-96"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
@@ -88,33 +88,33 @@ const ProductShowcase = () => {
           </motion.div>
 
           <motion.div 
-            className="space-y-6"
+            className="space-y-4 lg:space-y-6"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="grid grid-cols-3 gap-4">
-              <div className="text-center p-4 bg-slate-700 rounded-lg">
-                <Zap className="text-orange-500 mx-auto mb-2" size={32} />
-                <h3 className="text-2xl font-bold text-white">3200</h3>
-                <p className="text-gray-400">Max HP</p>
+            <div className="grid grid-cols-3 gap-3 lg:gap-4">
+              <div className="text-center p-3 lg:p-4 bg-slate-700 rounded-lg">
+                <Zap className="text-orange-500 mx-auto mb-2" size={24} />
+                <h3 className="text-xl lg:text-2xl font-bold text-white">3200</h3>
+                <p className="text-xs lg:text-sm text-gray-400">Max HP</p>
               </div>
-              <div className="text-center p-4 bg-slate-700 rounded-lg">
-                <Gauge className="text-orange-500 mx-auto mb-2" size={32} />
-                <h3 className="text-2xl font-bold text-white">18m</h3>
-                <p className="text-gray-400">Max Diameter</p>
+              <div className="text-center p-3 lg:p-4 bg-slate-700 rounded-lg">
+                <Gauge className="text-orange-500 mx-auto mb-2" size={24} />
+                <h3 className="text-xl lg:text-2xl font-bold text-white">18m</h3>
+                <p className="text-xs lg:text-sm text-gray-400">Max Diameter</p>
               </div>
-              <div className="text-center p-4 bg-slate-700 rounded-lg">
-                <Shield className="text-orange-500 mx-auto mb-2" size={32} />
-                <h3 className="text-2xl font-bold text-white">5000m</h3>
-                <p className="text-gray-400">Max Depth</p>
+              <div className="text-center p-3 lg:p-4 bg-slate-700 rounded-lg">
+                <Shield className="text-orange-500 mx-auto mb-2" size={24} />
+                <h3 className="text-xl lg:text-2xl font-bold text-white">5000m</h3>
+                <p className="text-xs lg:text-sm text-gray-400">Max Depth</p>
               </div>
             </div>
             
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-white">Interactive 3D Preview</h3>
-              <p className="text-gray-300">
+            <div className="space-y-3 lg:space-y-4">
+              <h3 className="text-xl lg:text-2xl font-bold text-white">Interactive 3D Preview</h3>
+              <p className="text-sm lg:text-base text-gray-300">
                 Explore our drilling machines in stunning 3D detail. Rotate, zoom, and examine 
                 every component of our industrial-grade equipment. Experience the precision 
                 engineering that powers the world's most demanding projects.
@@ -129,7 +129,7 @@ const ProductShowcase = () => {
           </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
           {products.map((product, index) => (
             <motion.div
               key={product.id}
@@ -139,14 +139,14 @@ const ProductShowcase = () => {
               viewport={{ once: true }}
             >
               <Card className="bg-slate-700 border-slate-600 hover:border-orange-500 transition-all duration-300 h-full">
-                <CardHeader>
-                  <CardTitle className="text-orange-500">{product.name}</CardTitle>
-                  <CardDescription className="text-gray-400">{product.category}</CardDescription>
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-orange-500 text-lg lg:text-xl">{product.name}</CardTitle>
+                  <CardDescription className="text-gray-400 text-sm">{product.category}</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-gray-300">{product.description}</p>
+                <CardContent className="space-y-3 lg:space-y-4">
+                  <p className="text-gray-300 text-sm lg:text-base">{product.description}</p>
                   
-                  <div className="grid grid-cols-3 gap-2 text-sm">
+                  <div className="grid grid-cols-3 gap-2 text-xs lg:text-sm">
                     <div className="text-center">
                       <p className="text-orange-500 font-semibold">{product.specs.power}</p>
                       <p className="text-gray-400">Power</p>
@@ -162,18 +162,18 @@ const ProductShowcase = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <h4 className="text-white font-semibold">Key Features:</h4>
-                    <ul className="text-sm text-gray-300 space-y-1">
+                    <h4 className="text-white font-semibold text-sm lg:text-base">Key Features:</h4>
+                    <ul className="text-xs lg:text-sm text-gray-300 space-y-1">
                       {product.features.map((feature, i) => (
                         <li key={i} className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-orange-500 rounded-full mr-2"></div>
+                          <div className="w-1.5 h-1.5 bg-orange-500 rounded-full mr-2 flex-shrink-0"></div>
                           {feature}
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <Button className="w-full bg-orange-600 hover:bg-orange-700">
+                  <Button className="w-full bg-orange-600 hover:bg-orange-700 text-sm lg:text-base">
                     Learn More
                   </Button>
                 </CardContent>

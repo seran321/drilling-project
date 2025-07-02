@@ -1,275 +1,293 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { ArrowLeft, Zap, Shield, Wrench, Settings, Drill, Truck } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Badge } from '@/components/ui/badge';
+import { Zap, Shield, Gauge, Settings, MapPin, Eye } from 'lucide-react';
 
 const Products = () => {
-  const [selectedProduct, setSelectedProduct] = useState(null);
-
   const products = [
     {
       id: 1,
-      name: "MegaDrill X1000",
+      name: "HeavyDrill Pro X1",
       category: "Tunnel Boring Machine",
-      description: "Our flagship mega-size drilling machine for large-scale industrial projects",
-      detailedDescription: "The MegaDrill X1000 represents the pinnacle of tunnel boring technology. Engineered for the most demanding underground construction projects, this machine combines raw power with precision control. Its advanced hydraulic system delivers consistent performance even in the harshest geological conditions.",
-      features: ["1000m drilling depth", "Advanced hydraulic system", "GPS positioning", "Real-time monitoring", "Auto-stabilization", "Dust suppression system"],
+      description: "Ultimate precision for large-scale tunnel construction projects with advanced GPS navigation and real-time monitoring systems.",
+      image: "/placeholder.svg",
       specs: {
         power: "2500 HP",
         diameter: "15.5m",
-        depth: "1000m+",
+        depth: "200m+",
         weight: "450 tons",
-        length: "120m"
+        speed: "8m/day"
       },
-      icon: Zap,
-      image: "/api/placeholder/600/400"
+      features: ["Advanced GPS Navigation", "Real-time Monitoring", "Auto-Stabilization", "Dust Control System", "Emergency Safety Protocols"],
+      applications: ["Metro Tunnels", "Highway Tunnels", "Water Tunnels", "Utility Tunnels"],
+      price: "$12.5M - $15.2M"
     },
     {
       id: 2,
-      name: "PowerDrill Pro 500",
+      name: "DeepReach 5000",
       category: "Oil & Gas Drilling",
-      description: "High-performance drilling solution for demanding applications",
-      detailedDescription: "The PowerDrill Pro 500 is specifically designed for oil and gas exploration. With its enhanced safety features and remote monitoring capabilities, it ensures efficient and secure drilling operations in both onshore and offshore environments.",
-      features: ["500m drilling depth", "Enhanced safety features", "Remote monitoring", "Pressure management", "Multi-layer detection", "Emergency shutdown system"],
+      description: "Extreme depth drilling for offshore and onshore operations, featuring pressure management and multi-layer detection.",
+      image: "/placeholder.svg",
       specs: {
-        power: "1800 HP",
+        power: "3200 HP",
         diameter: "12.2m",
-        depth: "500m+",
-        weight: "320 tons",
-        length: "85m"
+        depth: "5000m+",
+        weight: "600 tons",
+        speed: "5m/day"
       },
-      icon: Shield,
-      image: "/api/placeholder/600/400"
+      features: ["Pressure Management", "Multi-Layer Detection", "Remote Operation", "Blowout Prevention", "Seismic Sensors"],
+      applications: ["Offshore Drilling", "Onshore Drilling", "Deepwater Exploration", "Fracking Operations"],
+      price: "$18.0M - $22.5M"
     },
     {
       id: 3,
-      name: "IndustrialDrill HD",
+      name: "MegaBore Industrial",
       category: "Mining Equipment",
-      description: "Heavy-duty drilling machine for extreme conditions",
-      detailedDescription: "Built for the mining industry's toughest challenges, the IndustrialDrill HD operates reliably in extreme weather conditions. Its modular design allows for easy maintenance and customization based on specific mining requirements.",
-      features: ["All-weather operation", "Modular design", "24/7 support", "Vibration control", "Automated drilling", "Environmental monitoring"],
+      description: "Heavy-duty drilling for mining and excavation projects, designed for 24/7 operation with vibration control.",
+      image: "/placeholder.svg",
       specs: {
-        power: "2200 HP",
+        power: "2800 HP",
         diameter: "18.0m",
         depth: "300m+",
-        weight: "380 tons",
-        length: "95m"
+        weight: "520 tons",
+        speed: "6m/day"
       },
-      icon: Wrench,
-      image: "/api/placeholder/600/400"
+      features: ["Dust Suppression", "Vibration Control", "24/7 Operation", "Automated Drilling Sequences", "Real-time Data Analysis"],
+      applications: ["Open-Pit Mining", "Underground Mining", "Quarrying", "Excavation Projects"],
+      price: "$14.8M - $17.5M"
     },
     {
       id: 4,
-      name: "DeepReach 5000",
-      category: "Deep Drilling",
-      description: "Extreme depth drilling for offshore and onshore operations",
-      detailedDescription: "The DeepReach 5000 pushes the boundaries of deep drilling technology. Capable of reaching unprecedented depths, this machine is equipped with advanced geological sensors and adaptive drilling systems that adjust to changing rock formations automatically.",
-      features: ["5000m drilling depth", "Geological sensors", "Adaptive drilling", "Automated systems", "Deep sea capability", "Advanced telemetry"],
+      name: "TerraDrill 3000",
+      category: "Geothermal Drilling",
+      description: "Specialized drilling for geothermal energy extraction, with high-temperature tolerance and advanced cooling systems.",
+      image: "/placeholder.svg",
       specs: {
-        power: "3200 HP",
-        diameter: "14.5m",
-        depth: "5000m+",
-        weight: "520 tons",
-        length: "140m"
+        power: "2600 HP",
+        diameter: "10.5m",
+        depth: "3000m+",
+        weight: "480 tons",
+        speed: "4m/day"
       },
-      icon: Settings,
-      image: "/api/placeholder/600/400"
+      features: ["High-Temperature Tolerance", "Advanced Cooling Systems", "Real-time Temperature Monitoring", "Corrosion Resistance", "Automated Control"],
+      applications: ["Geothermal Power Plants", "Enhanced Geothermal Systems", "Heat Extraction", "Geothermal Research"],
+      price: "$16.2M - $19.0M"
     },
     {
       id: 5,
-      name: "CompactDrill 200",
-      category: "Urban Construction",
-      description: "Compact drilling solution for urban environments",
-      detailedDescription: "Designed for urban construction projects where space is limited, the CompactDrill 200 delivers impressive performance in a smaller footprint. Perfect for subway construction, utility installations, and urban infrastructure projects.",
-      features: ["Compact design", "Low noise operation", "Precision control", "Urban-friendly", "Quick setup", "Minimal footprint"],
+      name: "AquaDrill Explorer",
+      category: "Underwater Drilling",
+      description: "Submersible drilling equipment for underwater exploration and construction, with remote operation and pressure compensation.",
+      image: "/placeholder.svg",
       specs: {
-        power: "800 HP",
+        power: "2400 HP",
         diameter: "8.0m",
-        depth: "200m+",
-        weight: "150 tons",
-        length: "45m"
+        depth: "2000m+",
+        weight: "550 tons",
+        speed: "3m/day"
       },
-      icon: Drill,
-      image: "/api/placeholder/600/400"
+      features: ["Remote Operation", "Pressure Compensation", "Underwater Navigation", "Corrosion Protection", "Sonar Imaging"],
+      applications: ["Offshore Construction", "Submarine Cable Installation", "Underwater Mining", "Oceanographic Research"],
+      price: "$20.0M - $24.0M"
     },
     {
       id: 6,
-      name: "MobileDrill Max",
-      category: "Mobile Drilling",
-      description: "Highly mobile drilling unit for rapid deployment",
-      detailedDescription: "The MobileDrill Max combines mobility with power, allowing for rapid deployment to remote locations. Its self-contained design includes all necessary support systems, making it ideal for emergency drilling operations and remote site development.",
-      features: ["Rapid deployment", "Self-contained", "All-terrain capability", "Emergency response", "Remote operation", "Satellite communication"],
+      name: "PolarDrill 1000",
+      category: "Arctic Drilling",
+      description: "Drilling equipment designed for extreme cold environments, with insulated components and ice-penetrating technology.",
+      image: "/placeholder.svg",
       specs: {
-        power: "1500 HP",
-        diameter: "10.0m",
-        depth: "400m+",
-        weight: "200 tons",
-        length: "60m"
+        power: "2200 HP",
+        diameter: "9.0m",
+        depth: "1000m+",
+        weight: "500 tons",
+        speed: "3.5m/day"
       },
-      icon: Truck,
-      image: "/api/placeholder/600/400"
+      features: ["Insulated Components", "Ice-Penetrating Technology", "Cold-Start System", "Heated Enclosures", "Remote Monitoring"],
+      applications: ["Arctic Exploration", "Ice Core Sampling", "Permafrost Drilling", "Cold Climate Construction"],
+      price: "$17.5M - $21.0M"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
+    <div className="min-h-screen bg-slate-900 text-white overflow-x-hidden">
       <Navigation />
       
-      <main className="pt-20 pb-12">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-12"
-          >
-            <div className="text-center">
-              <h1 className="text-5xl font-bold text-orange-500 mb-6">Our Product Range</h1>
-              <p className="text-xl text-gray-300 max-w-4xl mx-auto">
-                Discover our comprehensive range of cutting-edge drilling machines designed for 
-                industrial excellence across various applications and environments.
+      <div className="pt-16">
+        {/* Hero Section */}
+        <section className="py-16 lg:py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-orange-900/20">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div 
+              className="text-center mb-12 lg:mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+                Our <span className="text-orange-500">Product Range</span>
+              </h1>
+              <p className="text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto">
+                Discover our complete lineup of industrial drilling machines, each engineered 
+                for specific applications and designed to exceed the most demanding requirements.
               </p>
-            </div>
+            </motion.div>
+          </div>
+        </section>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Products Grid */}
+        <section className="py-16 lg:py-20 bg-slate-800">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
               {products.map((product, index) => (
                 <motion.div
                   key={product.id}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  className="h-full"
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <Card className="bg-slate-800 border-slate-600 hover:border-orange-500 transition-all duration-300 h-full flex flex-col">
-                    <CardHeader>
-                      <div className="flex items-center mb-2">
-                        <product.icon className="text-orange-500 mr-3" size={32} />
-                        <div>
-                          <CardTitle className="text-orange-500">{product.name}</CardTitle>
-                          <CardDescription className="text-gray-400">{product.category}</CardDescription>
-                        </div>
+                  <Card className="bg-slate-700 border-slate-600 hover:border-orange-500 transition-all duration-300 h-full">
+                    <CardHeader className="pb-3">
+                      <div className="flex justify-between items-start mb-2">
+                        <Badge variant="secondary" className="bg-orange-600 text-white">
+                          {product.category}
+                        </Badge>
+                        <span className="text-sm text-gray-400">{product.price}</span>
                       </div>
+                      <CardTitle className="text-orange-500 text-lg lg:text-xl">{product.name}</CardTitle>
+                      <CardDescription className="text-gray-400 text-sm">{product.description}</CardDescription>
                     </CardHeader>
-                    <CardContent className="flex-1 flex flex-col justify-between space-y-4">
-                      <div>
-                        <p className="text-gray-300 mb-4">{product.description}</p>
-                        
-                        <div className="grid grid-cols-2 gap-2 text-sm mb-4">
-                          <div className="text-center bg-slate-700 p-2 rounded">
-                            <p className="text-orange-500 font-semibold">{product.specs.power}</p>
-                            <p className="text-gray-400">Power</p>
-                          </div>
-                          <div className="text-center bg-slate-700 p-2 rounded">
-                            <p className="text-orange-500 font-semibold">{product.specs.depth}</p>
-                            <p className="text-gray-400">Max Depth</p>
-                          </div>
+                    <CardContent className="space-y-3 lg:space-y-4">
+                      {/* Quick Specs */}
+                      <div className="grid grid-cols-3 gap-2 text-xs lg:text-sm">
+                        <div className="text-center p-2 bg-slate-600 rounded">
+                          <Zap size={16} className="text-orange-500 mx-auto mb-1" />
+                          <p className="text-orange-500 font-semibold">{product.specs.power}</p>
+                          <p className="text-gray-400">Power</p>
                         </div>
-
-                        <div className="space-y-2">
-                          <h4 className="text-white font-semibold">Key Features:</h4>
-                          <ul className="text-sm text-gray-300 space-y-1">
-                            {product.features.slice(0, 3).map((feature, i) => (
-                              <li key={i} className="flex items-center">
-                                <div className="w-1.5 h-1.5 bg-orange-500 rounded-full mr-2"></div>
-                                {feature}
-                              </li>
-                            ))}
-                          </ul>
+                        <div className="text-center p-2 bg-slate-600 rounded">
+                          <Gauge size={16} className="text-orange-500 mx-auto mb-1" />
+                          <p className="text-orange-500 font-semibold">{product.specs.diameter}</p>
+                          <p className="text-gray-400">Diameter</p>
+                        </div>
+                        <div className="text-center p-2 bg-slate-600 rounded">
+                          <Shield size={16} className="text-orange-500 mx-auto mb-1" />
+                          <p className="text-orange-500 font-semibold">{product.specs.depth}</p>
+                          <p className="text-gray-400">Max Depth</p>
                         </div>
                       </div>
 
-                      <Dialog>
-                        <DialogTrigger asChild>
-                          <Button className="w-full bg-orange-600 hover:bg-orange-700 mt-4">
-                            Learn More
-                          </Button>
-                        </DialogTrigger>
-                        <DialogContent className="max-w-4xl max-h-screen overflow-y-auto bg-slate-800 border-slate-600">
-                          <DialogHeader>
-                            <DialogTitle className="text-2xl text-orange-500 flex items-center">
-                              <product.icon className="mr-3" size={32} />
-                              {product.name}
-                            </DialogTitle>
-                            <DialogDescription className="text-gray-400">
-                              {product.category}
-                            </DialogDescription>
-                          </DialogHeader>
-                          
-                          <div className="space-y-6">
-                            <div className="w-full h-64 bg-slate-700 rounded-lg flex items-center justify-center">
-                              <div className="text-center">
-                                <product.icon className="text-orange-500 mx-auto mb-4" size={64} />
-                                <p className="text-gray-400">Machine Image Placeholder</p>
-                              </div>
-                            </div>
-                            
-                            <div>
-                              <h3 className="text-xl font-bold text-white mb-3">Overview</h3>
-                              <p className="text-gray-300">{product.detailedDescription}</p>
-                            </div>
+                      {/* Key Features Preview */}
+                      <div className="space-y-2">
+                        <h4 className="text-white font-semibold text-sm lg:text-base">Key Features:</h4>
+                        <ul className="text-xs lg:text-sm text-gray-300 space-y-1">
+                          {product.features.slice(0, 3).map((feature, i) => (
+                            <li key={i} className="flex items-center">
+                              <div className="w-1.5 h-1.5 bg-orange-500 rounded-full mr-2 flex-shrink-0"></div>
+                              {feature}
+                            </li>
+                          ))}
+                          {product.features.length > 3 && (
+                            <li className="text-orange-500 text-xs">+{product.features.length - 3} more features</li>
+                          )}
+                        </ul>
+                      </div>
 
-                            <div className="grid md:grid-cols-2 gap-6">
+                      {/* Action Buttons */}
+                      <div className="flex gap-2">
+                        <Dialog>
+                          <DialogTrigger asChild>
+                            <Button className="flex-1 bg-orange-600 hover:bg-orange-700 text-sm">
+                              <Eye className="mr-1" size={14} />
+                              Learn More
+                            </Button>
+                          </DialogTrigger>
+                          <DialogContent className="bg-slate-800 border-slate-600 text-white max-w-2xl max-h-[80vh] overflow-y-auto">
+                            <DialogHeader>
+                              <DialogTitle className="text-2xl text-orange-500">{product.name}</DialogTitle>
+                              <DialogDescription className="text-gray-300 text-base">
+                                {product.description}
+                              </DialogDescription>
+                            </DialogHeader>
+                            
+                            <div className="space-y-6 mt-6">
+                              {/* Detailed Specs */}
                               <div>
-                                <h3 className="text-xl font-bold text-white mb-3">Technical Specifications</h3>
-                                <div className="space-y-2">
-                                  {Object.entries(product.specs).map(([key, value]) => (
-                                    <div key={key} className="flex justify-between">
-                                      <span className="text-gray-400 capitalize">{key}:</span>
-                                      <span className="text-orange-500 font-semibold">{value}</span>
+                                <h3 className="text-lg font-semibold text-white mb-3">Technical Specifications</h3>
+                                <div className="grid grid-cols-2 gap-4">
+                                  <div className="bg-slate-700 p-3 rounded">
+                                    <p className="text-gray-400 text-sm">Power Output</p>
+                                    <p className="text-orange-500 font-bold">{product.specs.power}</p>
+                                  </div>
+                                  <div className="bg-slate-700 p-3 rounded">
+                                    <p className="text-gray-400 text-sm">Bore Diameter</p>
+                                    <p className="text-orange-500 font-bold">{product.specs.diameter}</p>
+                                  </div>
+                                  <div className="bg-slate-700 p-3 rounded">
+                                    <p className="text-gray-400 text-sm">Max Depth</p>
+                                    <p className="text-orange-500 font-bold">{product.specs.depth}</p>
+                                  </div>
+                                  <div className="bg-slate-700 p-3 rounded">
+                                    <p className="text-gray-400 text-sm">Total Weight</p>
+                                    <p className="text-orange-500 font-bold">{product.specs.weight}</p>
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* All Features */}
+                              <div>
+                                <h3 className="text-lg font-semibold text-white mb-3">Complete Feature Set</h3>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                  {product.features.map((feature, i) => (
+                                    <div key={i} className="flex items-center text-sm">
+                                      <div className="w-2 h-2 bg-orange-500 rounded-full mr-3 flex-shrink-0"></div>
+                                      {feature}
                                     </div>
                                   ))}
                                 </div>
                               </div>
 
+                              {/* Applications */}
                               <div>
-                                <h3 className="text-xl font-bold text-white mb-3">Features & Capabilities</h3>
-                                <ul className="space-y-2">
-                                  {product.features.map((feature, i) => (
-                                    <li key={i} className="flex items-center text-gray-300">
-                                      <div className="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
-                                      {feature}
-                                    </li>
+                                <h3 className="text-lg font-semibold text-white mb-3">Ideal Applications</h3>
+                                <div className="flex flex-wrap gap-2">
+                                  {product.applications.map((app, i) => (
+                                    <Badge key={i} variant="outline" className="border-orange-500 text-orange-500">
+                                      {app}
+                                    </Badge>
                                   ))}
-                                </ul>
+                                </div>
                               </div>
-                            </div>
 
-                            <div className="flex gap-4 pt-4">
-                              <Link to="/contact" className="flex-1">
-                                <Button className="w-full bg-orange-600 hover:bg-orange-700">
+                              {/* Contact CTA */}
+                              <div className="bg-slate-700 p-4 rounded-lg">
+                                <h3 className="text-lg font-semibold text-white mb-2">Interested in this machine?</h3>
+                                <p className="text-gray-300 text-sm mb-3">
+                                  Contact our team for detailed specifications, customization options, and pricing information.
+                                </p>
+                                <Button className="bg-orange-600 hover:bg-orange-700">
                                   Request Quote
                                 </Button>
-                              </Link>
-                              <Button variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white">
-                                Download Specs
-                              </Button>
+                              </div>
                             </div>
-                          </div>
-                        </DialogContent>
-                      </Dialog>
+                          </DialogContent>
+                        </Dialog>
+                        <Button variant="outline" size="sm" className="border-slate-500 text-slate-300 hover:bg-slate-700">
+                          <MapPin size={14} />
+                        </Button>
+                      </div>
                     </CardContent>
                   </Card>
                 </motion.div>
               ))}
             </div>
-
-            <div className="text-center">
-              <Link to="/">
-                <Button className="bg-orange-600 hover:bg-orange-700">
-                  <ArrowLeft className="mr-2" size={20} />
-                  Back to Home
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </main>
+          </div>
+        </section>
+      </div>
 
       <Footer />
     </div>
