@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Zap, Shield, Gauge } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import DrillingMachine from './3D/DrillingMachine';
 
 const ProductShowcase = () => {
@@ -50,7 +51,7 @@ const ProductShowcase = () => {
 
   return (
     <section id="products" className="py-20 bg-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <motion.div 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -67,7 +68,7 @@ const ProductShowcase = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-8 items-center mb-20">
           <motion.div 
             className="h-96"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -118,15 +119,17 @@ const ProductShowcase = () => {
                 every component of our industrial-grade equipment. Experience the precision 
                 engineering that powers the world's most demanding projects.
               </p>
-              <Button className="bg-orange-600 hover:bg-orange-700">
-                View All Models
-                <ArrowRight className="ml-2" size={16} />
-              </Button>
+              <Link to="/products">
+                <Button className="bg-orange-600 hover:bg-orange-700">
+                  View All Models
+                  <ArrowRight className="ml-2" size={16} />
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((product, index) => (
             <motion.div
               key={product.id}
