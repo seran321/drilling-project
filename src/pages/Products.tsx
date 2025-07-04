@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Navigation from '../components/Navigation';
@@ -15,7 +16,7 @@ const Products = () => {
       name: "HeavyDrill Pro X1",
       category: "Tunnel Boring Machine",
       description: "Ultimate precision for large-scale tunnel construction projects with advanced GPS navigation and real-time monitoring systems.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop",
       specs: {
         power: "2500 HP",
         diameter: "15.5m",
@@ -32,7 +33,7 @@ const Products = () => {
       name: "DeepReach 5000",
       category: "Oil & Gas Drilling",
       description: "Extreme depth drilling for offshore and onshore operations, featuring pressure management and multi-layer detection.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop",
       specs: {
         power: "3200 HP",
         diameter: "12.2m",
@@ -49,7 +50,7 @@ const Products = () => {
       name: "MegaBore Industrial",
       category: "Mining Equipment",
       description: "Heavy-duty drilling for mining and excavation projects, designed for 24/7 operation with vibration control.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop",
       specs: {
         power: "2800 HP",
         diameter: "18.0m",
@@ -66,7 +67,7 @@ const Products = () => {
       name: "TerraDrill 3000",
       category: "Geothermal Drilling",
       description: "Specialized drilling for geothermal energy extraction, with high-temperature tolerance and advanced cooling systems.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop",
       specs: {
         power: "2600 HP",
         diameter: "10.5m",
@@ -83,7 +84,7 @@ const Products = () => {
       name: "AquaDrill Explorer",
       category: "Underwater Drilling",
       description: "Submersible drilling equipment for underwater exploration and construction, with remote operation and pressure compensation.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop",
       specs: {
         power: "2400 HP",
         diameter: "8.0m",
@@ -100,7 +101,7 @@ const Products = () => {
       name: "PolarDrill 1000",
       category: "Arctic Drilling",
       description: "Drilling equipment designed for extreme cold environments, with insulated components and ice-penetrating technology.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
       specs: {
         power: "2200 HP",
         diameter: "9.0m",
@@ -215,6 +216,15 @@ const Products = () => {
                             </DialogHeader>
                             
                             <div className="space-y-6 mt-6">
+                              {/* Product Image */}
+                              <div className="w-full h-48 sm:h-64 rounded-lg overflow-hidden">
+                                <img 
+                                  src={product.image} 
+                                  alt={product.name}
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+
                               {/* Detailed Specs */}
                               <div>
                                 <h3 className="text-lg font-semibold text-white mb-3">Technical Specifications</h3>
