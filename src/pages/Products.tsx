@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Navigation from '../components/Navigation';
@@ -7,9 +6,44 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
-import { Zap, Shield, Gauge, Settings, MapPin, Eye } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Zap, Shield, Gauge, Settings, MapPin, Eye, Send } from 'lucide-react';
 
 const Products = () => {
+  const [quoteForm, setQuoteForm] = useState({
+    name: '',
+    email: '',
+    company: '',
+    message: ''
+  });
+  const [showQuoteForm, setShowQuoteForm] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const handleQuoteRequest = (product) => {
+    setSelectedProduct(product);
+    setShowQuoteForm(true);
+  };
+
+  const handleQuoteSubmit = (e) => {
+    e.preventDefault();
+    // Handle quote submission
+    console.log('Quote request submitted:', {
+      product: selectedProduct?.name,
+      ...quoteForm
+    });
+    alert(`Thank you for your interest in ${selectedProduct?.name}! We will contact you soon with a detailed quote.`);
+    setQuoteForm({ name: '', email: '', company: '', message: '' });
+    setShowQuoteForm(false);
+  };
+
+  const handleQuoteFormChange = (e) => {
+    setQuoteForm({
+      ...quoteForm,
+      [e.target.name]: e.target.value
+    });
+  };
+
   const products = [
     {
       id: 1,
@@ -279,7 +313,10 @@ const Products = () => {
                                 <p className="text-gray-300 text-sm mb-3">
                                   Contact our team for detailed specifications, customization options, and pricing information.
                                 </p>
-                                <Button className="bg-orange-600 hover:bg-orange-700">
+                                <Button 
+                                  className="bg-orange-600 hover:bg-orange-700"
+                                  onClick={() => handleQuoteRequest(product)}
+                                >
                                   Request Quote
                                 </Button>
                               </div>
@@ -298,6 +335,86 @@ const Products = () => {
           </div>
         </section>
       </div>
+
+      {/* Quote Request Modal */}
+      <Dialog open={showQuoteForm} onOpenChange={setShowQuoteForm}>
+        <DialogContent className="bg-slate-800 border-slate-600 text-white max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-xl text-orange-500">Request Quote</DialogTitle>
+            <DialogDescription className="text-gray-300">
+              {selectedProduct && `Get a personalized quote for ${selectedProduct.name}`}
+            </DialogDescription>
+          </DialogHeader>
+          
+          <form onSubmit={handleQuoteSubmit} className="space-y-4 mt-4">
+            <div>
+              <label className="block text-gray-300 mb-2 text-sm">Name *</label>
+              <Input
+                name="name"
+                value={quoteForm.name}
+                onChange={handleQuoteFormChange}
+                required
+                className="bg-slate-700 border-slate-600 text-white focus:border-orange-500"
+                placeholder="Your full name"
+              />
+            </div>
+            
+            <div>
+              <label className="block text-gray-300 mb-2 text-sm">Email *</label>
+              <Input
+                type="email"
+                name="email"
+                value={quoteForm.email}
+                onChange={handleQuoteFormChange}
+                required
+                className="bg-slate-700 border-slate-600 text-white focus:border-orange-500"
+                placeholder="your@email.com"
+              />
+            </div>
+            
+            <div>
+              <label className="block text-gray-300 mb-2 text-sm">Company</label>
+              <Input
+                name="company"
+                value={quoteForm.company}
+                onChange={handleQuoteFormChange}
+                className="bg-slate-700 border-slate-600 text-white focus:border-orange-500"
+                placeholder="Your company name"
+              />
+            </div>
+            
+            <div>
+              <label className="block text-gray-300 mb-2 text-sm">Project Details</label>
+              <Textarea
+                name="message"
+                value={quoteForm.message}
+                onChange={handleQuoteFormChange}
+                rows={3}
+                className="bg-slate-700 border-slate-600 text-white focus:border-orange-500"
+                placeholder="Tell us about your project requirements..."
+              />
+            </div>
+            
+            <div className="flex gap-2 pt-2">
+              <Button 
+                type="button" 
+                variant="outline" 
+                onClick={() => setShowQuoteForm(false)}
+                className="flex-1 border-slate-500 text-slate-300 hover:bg-slate-700"
+              >
+                Cancel
+              </Button>
+              <Button 
+                type="submit" 
+                className="flex-1 bg-orange-600 hover:bg-orange-700"
+              >
+                <Send className="mr-2" size={16} />
+                Submit Request
+              </Button>
+            </div>
+          </form>
+        </DialogContent>
+      </Dialog>
 
       <Footer />
     </div>
