@@ -7,11 +7,14 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import DrillingMachine from './3D/DrillingMachine';
+import ThemeToggle from './ThemeToggle';
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-900 via-slate-800 to-orange-900/20 pt-16">
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0di00aC0ydjRoLTR2Mmg0djRoMnYtNGg0di0yaC00em0wLTMwVjBoLTJ2NGgtNHYyaDR2NGgyVjZoNFY0aC00ek02IDM0di00SDR2NEgwdjJoNHY0aDJ2LTRoNHYtMkg2ek02IDRWMEG0djRIMHYyaDR2NGgyVjZoNFY0SDZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20"></div>
+    <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-br from-blue-50 via-blue-100 to-primary/20 dark:from-slate-900 dark:via-slate-800 dark:to-blue-900/20 pt-16">
+      <div className="absolute top-20 right-4">
+        <ThemeToggle />
+      </div>
       
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-6 lg:gap-8 items-center relative z-10">
         <motion.div 
@@ -27,20 +30,20 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <span className="text-white">Industrial</span>
+              <span className="text-foreground">Industrial</span>
               <br />
-              <span className="text-orange-500">Drilling</span>
+              <span className="text-primary">Drilling</span>
               <br />
-              <span className="text-white">Excellence</span>
+              <span className="text-foreground">Excellence</span>
             </motion.h1>
             
             <motion.p 
-              className="text-lg sm:text-xl text-gray-300 max-w-lg"
+              className="text-lg sm:text-xl text-muted-foreground max-w-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Cutting-edge mega-size drilling machines engineered for the most demanding industrial applications. Power, precision, and reliability redefined.
+              Advanced drilling machines for demanding industrial applications. Power, precision, reliability.
             </motion.p>
           </div>
 
@@ -50,15 +53,15 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg">
               <a href="#products" className="flex items-center">
                 Explore Machines
                 <ArrowRight className="ml-2" size={18} />
               </a>
             </Button>
-            <Button size="lg" variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg">
+            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg">
               <Play className="mr-2" size={18} />
-              Watch Demo
+              Demo
             </Button>
           </motion.div>
 
@@ -69,16 +72,16 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             <div className="text-center">
-              <h3 className="text-2xl lg:text-3xl font-bold text-orange-500">500+</h3>
-              <p className="text-sm lg:text-base text-gray-400">Projects Completed</p>
+              <h3 className="text-2xl lg:text-3xl font-bold text-primary">500+</h3>
+              <p className="text-sm lg:text-base text-muted-foreground">Projects</p>
             </div>
             <div className="text-center">
-              <h3 className="text-2xl lg:text-3xl font-bold text-orange-500">50+</h3>
-              <p className="text-sm lg:text-base text-gray-400">Countries Served</p>
+              <h3 className="text-2xl lg:text-3xl font-bold text-primary">50+</h3>
+              <p className="text-sm lg:text-base text-muted-foreground">Countries</p>
             </div>
             <div className="text-center">
-              <h3 className="text-2xl lg:text-3xl font-bold text-orange-500">25</h3>
-              <p className="text-sm lg:text-base text-gray-400">Years Experience</p>
+              <h3 className="text-2xl lg:text-3xl font-bold text-primary">25</h3>
+              <p className="text-sm lg:text-base text-muted-foreground">Years</p>
             </div>
           </motion.div>
         </motion.div>
