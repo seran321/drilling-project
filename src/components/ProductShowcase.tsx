@@ -17,7 +17,7 @@ const ProductShowcase = () => {
       id: 1,
       name: "HeavyDrill Pro X1",
       category: "Tunnel Boring",
-      description: "Precision tunnel construction with GPS navigation",
+      description: "Precision tunnel construction",
       image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop",
       specs: {
         power: "2500 HP",
@@ -34,7 +34,7 @@ const ProductShowcase = () => {
       id: 2,
       name: "DeepReach 5000",
       category: "Oil & Gas",
-      description: "Extreme depth drilling with pressure management",
+      description: "Extreme depth drilling",
       image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop",
       specs: {
         power: "3200 HP",
@@ -51,7 +51,7 @@ const ProductShowcase = () => {
       id: 3,
       name: "MegaBore Industrial",
       category: "Mining Equipment",
-      description: "Heavy-duty mining with vibration control",
+      description: "Heavy-duty mining solutions",
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop",
       specs: {
         power: "2800 HP",
@@ -77,7 +77,7 @@ const ProductShowcase = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
-            Our <span className="text-primary">Drilling Machines</span>
+            Our <span className="text-primary">Products</span>
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
             Engineered for extreme conditions, built for maximum performance.
@@ -131,7 +131,7 @@ const ProductShowcase = () => {
             <div className="space-y-2 sm:space-y-3 lg:space-y-4">
               <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground">Interactive 3D Preview</h3>
               <p className="text-sm sm:text-base text-muted-foreground">
-                Explore our drilling machines in 3D detail. Experience precision engineering for demanding projects.
+                Explore our drilling machines in 3D. Precision engineering for demanding projects.
               </p>
               <Link to="/products">
                 <Button className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base">
@@ -184,18 +184,6 @@ const ProductShowcase = () => {
                       <p className="text-primary font-semibold">{product.specs.depth}</p>
                       <p className="text-muted-foreground">Depth</p>
                     </div>
-                  </div>
-
-                  <div className="space-y-1 sm:space-y-2">
-                    <h4 className="text-foreground font-semibold text-xs sm:text-sm lg:text-base">Features:</h4>
-                    <ul className="text-xs sm:text-sm text-muted-foreground space-y-1">
-                      {product.features.map((feature, i) => (
-                        <li key={i} className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0"></div>
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
                   </div>
 
                   <Dialog>
@@ -268,9 +256,9 @@ const ProductShowcase = () => {
                         </div>
 
                         <div className="bg-muted p-3 sm:p-4 rounded-lg">
-                          <h3 className="text-base sm:text-lg font-semibold text-foreground mb-2">Interested?</h3>
+                          <h3 className="text-base sm:text-lg font-semibold text-foreground mb-2">Contact Us</h3>
                           <p className="text-muted-foreground text-xs sm:text-sm mb-2 sm:mb-3">
-                            Contact our team for specifications and pricing.
+                            Get specifications and pricing information.
                           </p>
                           <Button className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm">
                             Request Quote

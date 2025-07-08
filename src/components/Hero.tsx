@@ -5,13 +5,12 @@ import { OrbitControls, Environment, Float } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import DrillingMachine from './3D/DrillingMachine';
 import ThemeToggle from './ThemeToggle';
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-br from-blue-50 via-blue-100 to-primary/20 dark:from-slate-900 dark:via-slate-800 dark:to-blue-900/20 pt-16">
+    <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-br from-blue-50 via-blue-100 to-primary/10 dark:from-slate-900 dark:via-slate-800 dark:to-blue-900/20 pt-16">
       <div className="absolute top-20 right-4">
         <ThemeToggle />
       </div>
@@ -34,7 +33,7 @@ const Hero = () => {
               <br />
               <span className="text-primary">Drilling</span>
               <br />
-              <span className="text-foreground">Excellence</span>
+              <span className="text-foreground">Solutions</span>
             </motion.h1>
             
             <motion.p 
@@ -43,7 +42,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Advanced drilling machines for demanding industrial applications. Power, precision, reliability.
+              Advanced drilling technology for demanding projects.
             </motion.p>
           </div>
 
@@ -55,7 +54,7 @@ const Hero = () => {
           >
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg">
               <a href="#products" className="flex items-center">
-                Explore Machines
+                View Products
                 <ArrowRight className="ml-2" size={18} />
               </a>
             </Button>
