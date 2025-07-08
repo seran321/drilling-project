@@ -8,8 +8,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Separator } from '@/components/ui/separator';
-import { Navigation } from '@/components/Navigation';
-import { Footer } from '@/components/Footer';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 import { ThemeProvider } from '@/hooks/useTheme';
 import { 
   ArrowRight, 
@@ -23,7 +23,7 @@ import {
 } from 'lucide-react';
 
 const Products = () => {
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState<any>(null);
   const [showQuoteModal, setShowQuoteModal] = useState(false);
   const [quoteProductTitle, setQuoteProductTitle] = useState('');
 
@@ -98,7 +98,7 @@ const Products = () => {
                 Our <span className="text-primary">Products</span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Explore our range of industrial drilling machines designed for the toughest projects.
+                Industrial drilling machines for tough projects.
               </p>
             </motion.div>
           </div>
@@ -155,7 +155,7 @@ const Products = () => {
                               onClick={() => setSelectedProduct(product)}
                             >
                               <Eye className="w-4 h-4 mr-1" />
-                              View Details
+                              Details
                             </Button>
                           </DialogTrigger>
                           <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-card">
@@ -186,9 +186,9 @@ const Products = () => {
                                     </div>
                                     
                                     <div>
-                                      <h3 className="text-lg font-semibold text-foreground mb-3">Key Features</h3>
+                                      <h3 className="text-lg font-semibold text-foreground mb-3">Features</h3>
                                       <ul className="space-y-2">
-                                        {selectedProduct.features.map((feature, i) => (
+                                        {selectedProduct.features.map((feature: string, i: number) => (
                                           <li key={i} className="flex items-center text-muted-foreground">
                                             <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
                                             {feature}
@@ -203,7 +203,7 @@ const Products = () => {
                                         {Object.entries(selectedProduct.specs).map(([key, value]) => (
                                           <div key={key} className="bg-muted/30 p-3 rounded-lg">
                                             <p className="text-xs text-muted-foreground capitalize">{key}</p>
-                                            <p className="font-semibold text-foreground">{value}</p>
+                                            <p className="font-semibold text-foreground">{value as string}</p>
                                           </div>
                                         ))}
                                       </div>
@@ -217,7 +217,7 @@ const Products = () => {
                                         }}
                                       >
                                         <MessageSquare className="w-4 h-4 mr-2" />
-                                        Request Quote
+                                        Quote
                                       </Button>
                                       <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                                         <Download className="w-4 h-4 mr-2" />
