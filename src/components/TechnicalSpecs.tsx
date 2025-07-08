@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
-import { Download, Zap, Gauge, Shield, Thermometer, Fuel, Settings } from 'lucide-react';
+import { Download, Zap, Gauge, Shield, Thermometer, Settings } from 'lucide-react';
 
 const TechnicalSpecs = () => {
   const [activeSpec, setActiveSpec] = useState('performance');
@@ -63,7 +63,7 @@ const TechnicalSpecs = () => {
   ];
 
   return (
-    <section id="specs" className="py-20 bg-slate-900">
+    <section id="specs" className="py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           className="text-center mb-16"
@@ -72,12 +72,12 @@ const TechnicalSpecs = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Technical <span className="text-orange-500">Specifications</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            Technical <span className="text-primary">Specifications</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Detailed technical specifications and performance metrics for our 
-            industrial drilling machines. Built to exceed industry standards.
+            industrial drilling machines.
           </p>
         </motion.div>
 
@@ -89,12 +89,12 @@ const TechnicalSpecs = () => {
           viewport={{ once: true }}
         >
           <Tabs value={activeSpec} onValueChange={setActiveSpec}>
-            <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 bg-slate-800 p-1">
+            <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 bg-card p-1">
               {Object.entries(specifications).map(([key, spec]) => (
                 <TabsTrigger 
                   key={key} 
                   value={key}
-                  className="flex items-center gap-2 data-[state=active]:bg-orange-600"
+                  className="flex items-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
                 >
                   {spec.icon}
                   <span className="hidden sm:inline">{spec.title}</span>
@@ -104,9 +104,9 @@ const TechnicalSpecs = () => {
 
             {Object.entries(specifications).map(([key, spec]) => (
               <TabsContent key={key} value={key} className="mt-8">
-                <Card className="bg-slate-800 border-slate-700">
+                <Card className="bg-card border-border hover:shadow-xl transition-all duration-300">
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-3 text-orange-500">
+                    <CardTitle className="flex items-center gap-3 text-primary">
                       {spec.icon}
                       {spec.title}
                     </CardTitle>
@@ -116,14 +116,21 @@ const TechnicalSpecs = () => {
                       {spec.data.map((item, index) => (
                         <motion.div
                           key={index}
-                          className="bg-slate-700 p-4 rounded-lg"
+                          className="bg-muted/50 p-4 rounded-lg hover:shadow-lg transition-all duration-300"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.5, delay: index * 0.1 }}
+                          whileHover={{ 
+                            scale: 1.02, 
+                            rotateX: 5,
+                            z: 20,
+                            transition: { duration: 0.2 }
+                          }}
+                          style={{ transformStyle: 'preserve-3d' }}
                         >
-                          <h4 className="text-white font-semibold mb-2">{item.label}</h4>
-                          <p className="text-2xl font-bold text-orange-500 mb-1">{item.value}</p>
-                          <p className="text-gray-400 text-sm">{item.unit}</p>
+                          <h4 className="text-foreground font-semibold mb-2">{item.label}</h4>
+                          <p className="text-2xl font-bold text-primary mb-1">{item.value}</p>
+                          <p className="text-muted-foreground text-sm">{item.unit}</p>
                         </motion.div>
                       ))}
                     </div>
@@ -140,22 +147,29 @@ const TechnicalSpecs = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            whileHover={{ 
+              scale: 1.02, 
+              rotateY: -5,
+              z: 30,
+              transition: { duration: 0.3 }
+            }}
+            style={{ transformStyle: 'preserve-3d' }}
           >
-            <Card className="bg-slate-800 border-slate-700 h-full">
+            <Card className="bg-card border-border hover:border-primary transition-all duration-300 h-full hover:shadow-2xl">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-orange-500">
+                <CardTitle className="flex items-center gap-2 text-primary">
                   <Settings className="w-6 h-6" />
                   Certifications & Standards
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-gray-300">
+                <p className="text-muted-foreground">
                   Our drilling machines meet and exceed international safety, 
                   environmental, and quality standards.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {certifications.map((cert, index) => (
-                    <Badge key={index} variant="outline" className="border-orange-500 text-orange-500">
+                    <Badge key={index} variant="outline" className="border-primary text-primary">
                       {cert}
                     </Badge>
                   ))}
@@ -169,29 +183,36 @@ const TechnicalSpecs = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
+            whileHover={{ 
+              scale: 1.02, 
+              rotateY: 5,
+              z: 30,
+              transition: { duration: 0.3 }
+            }}
+            style={{ transformStyle: 'preserve-3d' }}
           >
-            <Card className="bg-slate-800 border-slate-700 h-full">
+            <Card className="bg-card border-border hover:border-primary transition-all duration-300 h-full hover:shadow-2xl">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-orange-500">
+                <CardTitle className="flex items-center gap-2 text-primary">
                   <Download className="w-6 h-6" />
                   Technical Documentation
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-gray-300">
+                <p className="text-muted-foreground">
                   Access comprehensive technical documentation, CAD files, 
-                  and operational manuals for our drilling equipment.
+                  and operational manuals.
                 </p>
                 <div className="space-y-3">
-                  <Button variant="outline" className="w-full justify-between border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white">
+                  <Button variant="outline" className="w-full justify-between border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                     Technical Specifications PDF
                     <Download className="w-4 h-4" />
                   </Button>
-                  <Button variant="outline" className="w-full justify-between border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white">
+                  <Button variant="outline" className="w-full justify-between border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                     CAD Files & 3D Models
                     <Download className="w-4 h-4" />
                   </Button>
-                  <Button variant="outline" className="w-full justify-between border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white">
+                  <Button variant="outline" className="w-full justify-between border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                     Operation Manual
                     <Download className="w-4 h-4" />
                   </Button>
