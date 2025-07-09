@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -26,6 +25,11 @@ const Products = () => {
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
   const [showQuoteModal, setShowQuoteModal] = useState(false);
   const [quoteProductTitle, setQuoteProductTitle] = useState('');
+
+  const handleQuoteRequest = (productTitle: string) => {
+    setQuoteProductTitle(productTitle);
+    setShowQuoteModal(true);
+  };
 
   const products = [
     {
@@ -75,11 +79,6 @@ const Products = () => {
     }
   ];
 
-  const handleQuoteRequest = (productTitle) => {
-    setQuoteProductTitle(productTitle);
-    setShowQuoteModal(true);
-  };
-
   return (
     <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
       <div className="min-h-screen bg-background text-foreground">
@@ -115,14 +114,16 @@ const Products = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   whileHover={{ 
-                    scale: 1.02, 
-                    rotateY: 2,
-                    z: 20,
-                    transition: { duration: 0.3 }
+                    scale: 1.02,
+                    y: -4,
+                    transition: { 
+                      duration: 0.2,
+                      ease: "easeOut"
+                    }
                   }}
-                  style={{ transformStyle: 'preserve-3d' }}
+                  className="transform-gpu"
                 >
-                  <Card className="bg-card border-border hover:border-primary transition-all duration-300 overflow-hidden hover:shadow-2xl">
+                  <Card className="bg-card border-border hover:border-primary transition-all duration-300 overflow-hidden hover:shadow-xl">
                     {/* Image First */}
                     <div className="aspect-video bg-muted/30 flex items-center justify-center">
                       <img 
@@ -262,29 +263,29 @@ const Products = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm font-medium text-foreground">First Name</label>
-                  <Input className="bg-background border-border" />
+                  <Input className="bg-background focus:border-primary focus:ring-0 focus:ring-offset-0" />
                 </div>
                 <div>
                   <label className="text-sm font-medium text-foreground">Last Name</label>
-                  <Input className="bg-background border-border" />
+                  <Input className="bg-background focus:border-primary focus:ring-0 focus:ring-offset-0" />
                 </div>
               </div>
               
               <div>
                 <label className="text-sm font-medium text-foreground">Email</label>
-                <Input type="email" className="bg-background border-border" />
+                <Input type="email" className="bg-background focus:border-primary focus:ring-0 focus:ring-offset-0" />
               </div>
               
               <div>
                 <label className="text-sm font-medium text-foreground">Company</label>
-                <Input className="bg-background border-border" />
+                <Input className="bg-background focus:border-primary focus:ring-0 focus:ring-offset-0" />
               </div>
               
               <div>
                 <label className="text-sm font-medium text-foreground">Message</label>
                 <Textarea 
                   placeholder="Tell us about your project..."
-                  className="bg-background border-border"
+                  className="bg-background focus:border-primary focus:ring-0 focus:ring-offset-0"
                   rows={3}
                 />
               </div>

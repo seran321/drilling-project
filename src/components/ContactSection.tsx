@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -57,14 +56,16 @@ const ContactSection = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             whileHover={{ 
-              scale: 1.02, 
-              rotateY: -3,
-              z: 20,
-              transition: { duration: 0.3 }
+              scale: 1.02,
+              y: -4,
+              transition: { 
+                duration: 0.2,
+                ease: "easeOut"
+              }
             }}
-            style={{ transformStyle: 'preserve-3d' }}
+            className="transform-gpu"
           >
-            <Card className="bg-card border-border hover:shadow-2xl transition-all duration-300">
+            <Card className="bg-card border-border hover:shadow-xl transition-all duration-300">
               <CardHeader>
                 <CardTitle className="text-primary text-2xl">Send us a Message</CardTitle>
               </CardHeader>
@@ -74,14 +75,14 @@ const ContactSection = () => {
                     <label className="text-foreground text-sm font-medium">First Name</label>
                     <Input 
                       placeholder="John" 
-                      className="bg-background border-border text-foreground focus:border-primary"
+                      className="bg-background text-foreground focus:border-primary focus:ring-0 focus:ring-offset-0"
                     />
                   </div>
                   <div className="space-y-2">
                     <label className="text-foreground text-sm font-medium">Last Name</label>
                     <Input 
                       placeholder="Doe" 
-                      className="bg-background border-border text-foreground focus:border-primary"
+                      className="bg-background text-foreground focus:border-primary focus:ring-0 focus:ring-offset-0"
                     />
                   </div>
                 </div>
@@ -91,7 +92,7 @@ const ContactSection = () => {
                   <Input 
                     type="email" 
                     placeholder="john@company.com" 
-                    className="bg-background border-border text-foreground focus:border-primary"
+                    className="bg-background text-foreground focus:border-primary focus:ring-0 focus:ring-offset-0"
                   />
                 </div>
 
@@ -99,13 +100,13 @@ const ContactSection = () => {
                   <label className="text-foreground text-sm font-medium">Company</label>
                   <Input 
                     placeholder="Your Company Name" 
-                    className="bg-background border-border text-foreground focus:border-primary"
+                    className="bg-background text-foreground focus:border-primary focus:ring-0 focus:ring-offset-0"
                   />
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-foreground text-sm font-medium">Project Type</label>
-                  <select className="w-full px-3 py-2 bg-background border border-border rounded-md text-foreground focus:border-primary focus:outline-none">
+                  <select className="w-full px-3 py-2 bg-background border border-border rounded-md text-foreground focus:border-primary focus:outline-none focus:ring-0">
                     <option>Select project type</option>
                     <option>Tunnel Construction</option>
                     <option>Oil & Gas Drilling</option>
@@ -120,7 +121,7 @@ const ContactSection = () => {
                   <Textarea 
                     placeholder="Tell us about your project requirements..."
                     rows={4}
-                    className="bg-background border-border text-foreground focus:border-primary"
+                    className="bg-background text-foreground focus:border-primary focus:ring-0 focus:ring-offset-0"
                   />
                 </div>
 
@@ -145,18 +146,19 @@ const ContactSection = () => {
                 {contactInfo.map((info, index) => (
                   <motion.div
                     key={index}
-                    className="flex items-start space-x-4 p-4 bg-card rounded-lg border border-border hover:shadow-lg transition-all duration-300"
+                    className="flex items-start space-x-4 p-4 bg-card rounded-lg border border-border hover:shadow-lg transition-all duration-300 transform-gpu"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ 
-                      scale: 1.02, 
-                      rotateX: 3,
-                      z: 10,
-                      transition: { duration: 0.2 }
+                      scale: 1.02,
+                      y: -2,
+                      transition: { 
+                        duration: 0.2,
+                        ease: "easeOut"
+                      }
                     }}
-                    style={{ transformStyle: 'preserve-3d' }}
                   >
                     <div className="flex-shrink-0">
                       {info.icon}
@@ -174,12 +176,14 @@ const ContactSection = () => {
 
             <motion.div
               whileHover={{ 
-                scale: 1.03, 
-                rotateY: 3,
-                z: 15,
-                transition: { duration: 0.3 }
+                scale: 1.02,
+                y: -4,
+                transition: { 
+                  duration: 0.2,
+                  ease: "easeOut"
+                }
               }}
-              style={{ transformStyle: 'preserve-3d' }}
+              className="transform-gpu"
             >
               <Card className="bg-card border-border hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-6">
