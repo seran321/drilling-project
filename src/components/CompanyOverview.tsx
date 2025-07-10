@@ -83,13 +83,14 @@ const CompanyOverview = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ 
-                  scale: 1.05, 
-                  rotateY: 5,
-                  z: 50,
-                  transition: { duration: 0.2 }
-                }}
-                style={{ transformStyle: 'preserve-3d' }}
+                whileHover={{
+                             scale: 1.02,
+                             y: -2,
+                             transition: { 
+                             duration: 0.0,
+                             ease: "easeOut"
+                      }
+                    }}
               >
                 <Card className="bg-card border-border hover:border-primary transition-all duration-300 h-full hover:shadow-2xl">
                   <CardContent className="p-6 text-center space-y-4">

@@ -22,12 +22,12 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navigation />
       
       <div className="pt-16">
         {/* Hero Section */}
-        <section className="py-16 lg:py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-orange-900/20">
+        <section className="py-16 lg:py-20 bg-gradient-to-br from-bakground via-muted/20 to-primary/5">
           <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div 
               className="text-center mb-12 lg:mb-16"
@@ -36,27 +36,37 @@ const About = () => {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-                About <span className="text-orange-500">DrillTech Industries</span>
+                About <span className="text-primary">DrillTech Industries</span>
               </h1>
-              <p className="text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-lg sm:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
                 For over 25 years, we've been at the forefront of industrial drilling technology, 
                 engineering solutions that power the world's most ambitious infrastructure projects.
               </p>
             </motion.div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 mb-16 lg:mb-20">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 mb-16 lg:mb-20 ">
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
-                  className="text-center p-4 lg:p-6 bg-slate-800/50 rounded-lg border border-slate-700"
+                  className="text-center p-4 lg:p-6 bg-card rounded-lg border border-border hover:border-primary transition-all duration-300 h-full hover:shadow-2xl"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
+                   whileHover={{
+                             scale: 1.02,
+                             y: -2,
+                             transition: { 
+                             duration: 0.0,
+                             ease: "easeOut"
+                      }
+                    }}
                 >
-                  <stat.icon className="text-orange-500 mx-auto mb-3 lg:mb-4" size={32} />
-                  <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2">{stat.number}</h3>
-                  <p className="text-sm lg:text-base text-gray-400">{stat.label}</p>
+                  
+                  <stat.icon className="text-primary mx-auto mb-3 lg:mb-4" size={32} />
+                  <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-2">{stat.number}</h3>
+                  <p className="text-sm lg:text-base text-gray-500">{stat.label}</p>
+                  
                 </motion.div>
               ))}
             </div>
@@ -64,7 +74,7 @@ const About = () => {
         </section>
 
         {/* Our Story */}
-        <section className="py-16 lg:py-20 bg-slate-800">
+        <section className="py-16 lg:py-20 bg-background">
           <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <motion.div
@@ -73,8 +83,8 @@ const About = () => {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">Our Story</h2>
-                <div className="space-y-4 lg:space-y-6 text-gray-300">
+                <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-6">Our Story</h2>
+                <div className="space-y-4 lg:space-y-6 text-foreground">
                   <p className="text-base lg:text-lg leading-relaxed">
                     Founded in 1998 by a team of visionary engineers, DrillTech Industries emerged from a simple 
                     belief: that the world's most challenging drilling projects deserve the most advanced, 
@@ -95,35 +105,35 @@ const About = () => {
               </motion.div>
 
               <motion.div
-                className="bg-slate-700 p-6 lg:p-8 rounded-lg"
+                className="bg-muted p-6 lg:p-8 rounded-lg"
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-xl lg:text-2xl font-bold text-orange-500 mb-4 lg:mb-6">Our Mission</h3>
-                <p className="text-gray-300 mb-6 lg:mb-8 text-base lg:text-lg leading-relaxed">
+                <h3 className="text-xl lg:text-2xl font-bold text-primary mb-4 lg:mb-6">Our Mission</h3>
+                <p className="text-foreground mb-6 lg:mb-8 text-base lg:text-lg leading-relaxed">
                   "To engineer and manufacture the world's most advanced drilling equipment, enabling 
                   our clients to tackle impossible projects and build the infrastructure that shapes 
                   our future."
                 </p>
                 
-                <h3 className="text-xl lg:text-2xl font-bold text-orange-500 mb-4 lg:mb-6">Our Values</h3>
-                <ul className="space-y-3 lg:space-y-4 text-gray-300">
+                <h3 className="text-xl lg:text-2xl font-bold text-primary mb-4 lg:mb-6">Our Values</h3>
+                <ul className="space-y-3 lg:space-y-4 text-foreground">
                   <li className="flex items-start">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></div>
                     <span className="text-base lg:text-lg"><strong>Innovation:</strong> Constantly pushing technological boundaries</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></div>
                     <span className="text-base lg:text-lg"><strong>Reliability:</strong> Building equipment that performs under extreme conditions</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></div>
                     <span className="text-base lg:text-lg"><strong>Excellence:</strong> Maintaining the highest standards in everything we do</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></div>
                     <span className="text-base lg:text-lg"><strong>Partnership:</strong> Working closely with clients to solve their unique challenges</span>
                   </li>
                 </ul>
@@ -133,7 +143,7 @@ const About = () => {
         </section>
 
         {/* Timeline */}
-        <section className="py-16 lg:py-20 bg-slate-900">
+        <section className="py-16 lg:py-20 bg-background  border border-gray-400">
           <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               className="text-center mb-12 lg:mb-16"
@@ -142,8 +152,8 @@ const About = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Our Journey</h2>
-              <p className="text-lg sm:text-xl text-gray-300">
+              <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">Our Journey</h2>
+              <p className="text-lg sm:text-xl text-gray-500">
                 Key milestones that shaped DrillTech Industries
               </p>
             </motion.div>
@@ -158,12 +168,12 @@ const About = () => {
                   transition={{ duration: 0.8, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <div className="flex-shrink-0 bg-orange-600 text-white px-4 py-2 rounded-lg font-bold text-lg lg:text-xl">
+                  <div className="flex-shrink-0 bg-primary text-white px-4 py-2 rounded-lg font-bold text-lg lg:text-xl">
                     {milestone.year}
                   </div>
-                  <div className="flex-1 bg-slate-800 p-4 lg:p-6 rounded-lg border border-slate-700">
-                    <h3 className="text-xl lg:text-2xl font-bold text-orange-500 mb-2 lg:mb-3">{milestone.title}</h3>
-                    <p className="text-gray-300 text-base lg:text-lg leading-relaxed">{milestone.description}</p>
+                  <div className="flex-1 bg-muted p-4 lg:p-6 rounded-lg border border-primery">
+                    <h3 className="text-xl lg:text-2xl font-bold text-primary mb-2 lg:mb-3">{milestone.title}</h3>
+                    <p className="text-gray-500 text-base lg:text-lg leading-relaxed">{milestone.description}</p>
                   </div>
                 </motion.div>
               ))}

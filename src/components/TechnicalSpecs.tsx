@@ -120,13 +120,14 @@ const TechnicalSpecs = () => {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.5, delay: index * 0.1 }}
-                          whileHover={{ 
-                            scale: 1.02, 
-                            rotateX: 5,
-                            z: 20,
-                            transition: { duration: 0.2 }
-                          }}
-                          style={{ transformStyle: 'preserve-3d' }}
+                         whileHover={{
+                             scale: 1.02,
+                             y: -2,
+                             transition: { 
+                             duration: 0.0,
+                             ease: "easeOut"
+                      }
+                    }}
                         >
                           <h4 className="text-foreground font-semibold mb-2">{item.label}</h4>
                           <p className="text-2xl font-bold text-primary mb-1">{item.value}</p>
@@ -147,13 +148,14 @@ const TechnicalSpecs = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            whileHover={{ 
-              scale: 1.02, 
-              rotateY: -5,
-              z: 30,
-              transition: { duration: 0.3 }
-            }}
-            style={{ transformStyle: 'preserve-3d' }}
+             whileHover={{
+                             scale: 1.02,
+                             y: -2,
+                             transition: { 
+                             duration: 0.0,
+                             ease: "easeOut"
+                      }
+                    }}
           >
             <Card className="bg-card border-border hover:border-primary transition-all duration-300 h-full hover:shadow-2xl">
               <CardHeader>
@@ -183,13 +185,14 @@ const TechnicalSpecs = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            whileHover={{ 
-              scale: 1.02, 
-              rotateY: 5,
-              z: 30,
-              transition: { duration: 0.3 }
-            }}
-            style={{ transformStyle: 'preserve-3d' }}
+            whileHover={{
+                             scale: 1.02,
+                             y: -2,
+                             transition: { 
+                             duration: 0.0,
+                             ease: "easeOut"
+                      }
+                    }}
           >
             <Card className="bg-card border-border hover:border-primary transition-all duration-300 h-full hover:shadow-2xl">
               <CardHeader>

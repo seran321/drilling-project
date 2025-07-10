@@ -39,6 +39,7 @@ const ContactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
+          
         >
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Get In <span className="text-primary">Touch</span>
@@ -56,57 +57,55 @@ const ContactSection = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             whileHover={{ 
-              scale: 1.02,
-              y: -4,
-              transition: { 
-                duration: 0.2,
-                ease: "easeOut"
-              }
+              scale: 1.02, 
+              rotateY: -3,
+              z: 20,
+              transition: { duration: 0.3 }
             }}
-            className="transform-gpu"
+            style={{ transformStyle: 'preserve-3d' }}
           >
             <Card className="bg-card border-border hover:shadow-xl transition-all duration-300">
               <CardHeader>
                 <CardTitle className="text-primary text-2xl">Send us a Message</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
+                
                   <div className="space-y-2">
                     <label className="text-foreground text-sm font-medium">First Name</label>
                     <Input 
                       placeholder="John" 
-                      className="bg-background text-foreground focus:border-primary focus:ring-0 focus:ring-offset-0"
+                      className="bg-background border-border text-foreground focus:border-primary"
                     />
                   </div>
                   <div className="space-y-2">
                     <label className="text-foreground text-sm font-medium">Last Name</label>
                     <Input 
                       placeholder="Doe" 
-                      className="bg-background text-foreground focus:border-primary focus:ring-0 focus:ring-offset-0"
+                      className="bg-background border-border text-foreground focus:border-primary"
                     />
                   </div>
-                </div>
+                
 
                 <div className="space-y-2">
                   <label className="text-foreground text-sm font-medium">Email</label>
                   <Input 
                     type="email" 
                     placeholder="john@company.com" 
-                    className="bg-background text-foreground focus:border-primary focus:ring-0 focus:ring-offset-0"
+                    className="bg-background border-border text-foreground focus:border-primary"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-foreground text-sm font-medium">Company</label>
+                  <label className="text-foreground text-sm font-medium">Subject</label>
                   <Input 
                     placeholder="Your Company Name" 
-                    className="bg-background text-foreground focus:border-primary focus:ring-0 focus:ring-offset-0"
+                    className="bg-background border-border text-foreground focus:border-primary"
                   />
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-foreground text-sm font-medium">Project Type</label>
-                  <select className="w-full px-3 py-2 bg-background border border-border rounded-md text-foreground focus:border-primary focus:outline-none focus:ring-0">
+                  <select className="w-full px-3 py-2 bg-background border border-border rounded-md text-foreground focus:border-primary focus:outline-none">
                     <option>Select project type</option>
                     <option>Tunnel Construction</option>
                     <option>Oil & Gas Drilling</option>
@@ -121,11 +120,11 @@ const ContactSection = () => {
                   <Textarea 
                     placeholder="Tell us about your project requirements..."
                     rows={4}
-                    className="bg-background text-foreground focus:border-primary focus:ring-0 focus:ring-offset-0"
+                    className="bg-background border-border text-foreground focus:border-primary"
                   />
                 </div>
 
-                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Button className="w-full bg-primary hover:bg-white hover:text-primary border-primary border text-white">
                   <Send className="w-4 h-4 mr-2" />
                   Send Message
                 </Button>
@@ -152,13 +151,12 @@ const ContactSection = () => {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ 
-                      scale: 1.02,
-                      y: -2,
-                      transition: { 
-                        duration: 0.2,
-                        ease: "easeOut"
-                      }
+                      scale: 1.02, 
+                      rotateX: 3,
+                      z: 10,
+                      transition: { duration: 0.2 }
                     }}
+                    style={{ transformStyle: 'preserve-3d' }}
                   >
                     <div className="flex-shrink-0">
                       {info.icon}
@@ -176,14 +174,12 @@ const ContactSection = () => {
 
             <motion.div
               whileHover={{ 
-                scale: 1.02,
-                y: -4,
-                transition: { 
-                  duration: 0.2,
-                  ease: "easeOut"
-                }
+                scale: 1.03, 
+                rotateY: 3,
+                z: 15,
+                transition: { duration: 0.3 }
               }}
-              className="transform-gpu"
+              style={{ transformStyle: 'preserve-3d' }}
             >
               <Card className="bg-card border-border hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-6">
@@ -192,7 +188,7 @@ const ContactSection = () => {
                     With service centers across 50+ countries, we provide local support 
                     for maintenance, repairs, and technical assistance worldwide.
                   </p>
-                  <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                  <Button variant="outline" className="border-primary  bg-primary text-white hover:bg-white hover:text-primary">
                     Find Service Center
                   </Button>
                 </CardContent>

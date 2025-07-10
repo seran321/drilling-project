@@ -10,6 +10,9 @@ import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Zap, Shield, Gauge, Eye } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import DrillingMachine from './3D/DrillingMachine';
+import tunnel from '@/assets/tunnel.jpg'
+import oil from '@/assets/oil.jpg'
+import mining from '@/assets/mining.jpg'
 
 const ProductShowcase = () => {
   const products = [
@@ -18,7 +21,7 @@ const ProductShowcase = () => {
       name: "HeavyDrill Pro X1",
       category: "Tunnel Boring",
       description: "Precision tunnel construction",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop",
+      image: tunnel,
       specs: {
         power: "2500 HP",
         diameter: "15.5m",
@@ -35,7 +38,7 @@ const ProductShowcase = () => {
       name: "DeepReach 5000",
       category: "Oil & Gas",
       description: "Extreme depth drilling",
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop",
+      image: oil,
       specs: {
         power: "3200 HP",
         diameter: "12.2m",
@@ -49,10 +52,10 @@ const ProductShowcase = () => {
     },
     {
       id: 3,
-      name: "MegaBore Industrial",
+      name: "Mega Mining Industrial",
       category: "Mining Equipment",
       description: "Heavy-duty mining solutions",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop",
+      image: mining,
       specs: {
         power: "2800 HP",
         diameter: "18.0m",
@@ -109,19 +112,21 @@ const ProductShowcase = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
+            
+            
           >
-            <div className="grid grid-cols-3 gap-2 sm:gap-3 lg:gap-4">
-              <div className="text-center p-2 sm:p-3 lg:p-4 bg-card rounded-lg border">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 lg:gap-4  ">
+              <div className="text-center p-2 sm:p-3 lg:p-4 bg-card rounded-lg border border-border hover:border-primary transition-all duration-300 h-full hover:shadow-2xl ">
                 <Zap className="text-primary mx-auto mb-1 sm:mb-2" size={20} />
                 <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground">3200</h3>
                 <p className="text-xs sm:text-sm text-muted-foreground">Max HP</p>
               </div>
-              <div className="text-center p-2 sm:p-3 lg:p-4 bg-card rounded-lg border">
+              <div className="text-center p-2 sm:p-3 lg:p-4 bg-card rounded-lg border border-border hover:border-primary transition-all duration-300 h-full hover:shadow-2xl">
                 <Gauge className="text-primary mx-auto mb-1 sm:mb-2" size={20} />
                 <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground">18m</h3>
                 <p className="text-xs sm:text-sm text-muted-foreground">Max Diameter</p>
               </div>
-              <div className="text-center p-2 sm:p-3 lg:p-4 bg-card rounded-lg border">
+              <div className="text-center p-2 sm:p-3 lg:p-4 bg-card rounded-lg border border-border hover:border-primary transition-all duration-300 h-full hover:shadow-2xl">
                 <Shield className="text-primary mx-auto mb-1 sm:mb-2" size={20} />
                 <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground">5000m</h3>
                 <p className="text-xs sm:text-sm text-muted-foreground">Max Depth</p>
@@ -151,8 +156,16 @@ const ProductShowcase = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
+               whileHover={{
+                             scale: 1.02,
+                             y: -2,
+                             transition: { 
+                             duration: 0.0,
+                             ease: "easeOut"
+                      }
+                    }}
             >
-              <Card className="bg-card border-border hover:border-primary transition-all duration-300 h-full">
+              <Card className="bg-card border-border hover:border-primary transition-all duration-300 overflow-hidden hover:shadow-2xl">
                 <div className="w-full h-48 sm:h-56 lg:h-64 rounded-t-lg overflow-hidden">
                   <img 
                     src={product.image} 

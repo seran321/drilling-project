@@ -21,7 +21,7 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-700">
+    <nav className="fixed top-0 w-full z-50 bg-white backdrop-blur-sm ">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <motion.div 
@@ -30,7 +30,7 @@ const Navigation = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <Link to="/" className="text-xl sm:text-2xl font-bold text-orange-500">
+            <Link to="/" className="text-xl sm:text-2xl font-bold text-primary">
               DrillTech Industries
             </Link>
           </motion.div>
@@ -48,8 +48,8 @@ const Navigation = () => {
                     to={item.href}
                     className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
                       isActive(item.href)
-                        ? 'text-orange-500 border-b-2 border-orange-500'
-                        : 'text-gray-300 hover:text-orange-500'
+                        ? 'text-primary border-b-2 border-primary'
+                        : 'text-gray-500 hover:text-primary'
                     }`}
                   >
                     {item.name}
@@ -60,7 +60,7 @@ const Navigation = () => {
           </div>
 
           <div className="hidden md:block">
-            <Button className="bg-orange-600 hover:bg-orange-700 px-4 lg:px-6">
+            <Button className="bg-primary hover:bg-white  border border-primary hover:text-primary px-4 lg:px-6">
               <Link to="/contact">Get Quote</Link>
             </Button>
           </div>
@@ -90,8 +90,8 @@ const Navigation = () => {
                 to={item.href}
                 className={`block px-3 py-2 text-base font-medium ${
                   isActive(item.href)
-                    ? 'text-orange-500 bg-slate-700'
-                    : 'text-gray-300 hover:text-orange-500'
+                    ? 'text-primary bg-slate-700'
+                    : 'text-gray-300 hover:text-primary'
                 }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -99,7 +99,7 @@ const Navigation = () => {
               </Link>
             ))}
             <div className="px-3 py-2">
-              <Button className="w-full bg-orange-600 hover:bg-orange-700">
+              <Button className="w-full bg-primary hover:bg-primary">
                 <Link to="/contact">Get Quote</Link>
               </Button>
             </div>
