@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
-import hero1 from '@/assets/hero1 (1).jpg'
+import hero1 from '@/assets/hero1.jpg'
 import hero2 from '@/assets/hero2.jpg'
 import hero3 from '@/assets/hero3.jpg'
 
