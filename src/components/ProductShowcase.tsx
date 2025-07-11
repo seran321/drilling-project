@@ -123,7 +123,7 @@ const ProductShowcase = () => {
               </div>
               <div className="text-center p-2 sm:p-3 lg:p-4 bg-card rounded-lg border border-border hover:border-primary transition-all duration-300 h-full hover:shadow-2xl">
                 <Gauge className="text-primary mx-auto mb-1 sm:mb-2" size={20} />
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground">18m</h3>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground">95m</h3>
                 <p className="text-xs sm:text-sm text-muted-foreground">Max Diameter</p>
               </div>
               <div className="text-center p-2 sm:p-3 lg:p-4 bg-card rounded-lg border border-border hover:border-primary transition-all duration-300 h-full hover:shadow-2xl">

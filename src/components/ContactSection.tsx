@@ -56,13 +56,14 @@ const ContactSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            whileHover={{ 
-              scale: 1.02, 
-              rotateY: -3,
-              z: 20,
-              transition: { duration: 0.3 }
-            }}
-            style={{ transformStyle: 'preserve-3d' }}
+             whileHover={{
+                             scale: 1.02,
+                             y: -2,
+                             transition: { 
+                             duration: 0.0,
+                             ease: "easeOut"
+                      }
+                    }}
           >
             <Card className="bg-card border-border hover:shadow-xl transition-all duration-300">
               <CardHeader>
@@ -77,13 +78,7 @@ const ContactSection = () => {
                       className="bg-background border-border text-foreground focus:border-primary"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-foreground text-sm font-medium">Last Name</label>
-                    <Input 
-                      placeholder="Doe" 
-                      className="bg-background border-border text-foreground focus:border-primary"
-                    />
-                  </div>
+                  
                 
 
                 <div className="space-y-2">
@@ -103,18 +98,7 @@ const ContactSection = () => {
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <label className="text-foreground text-sm font-medium">Project Type</label>
-                  <select className="w-full px-3 py-2 bg-background border border-border rounded-md text-foreground focus:border-primary focus:outline-none">
-                    <option>Select project type</option>
-                    <option>Tunnel Construction</option>
-                    <option>Oil & Gas Drilling</option>
-                    <option>Mining Operations</option>
-                    <option>Infrastructure Development</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-
+               
                 <div className="space-y-2">
                   <label className="text-foreground text-sm font-medium">Message</label>
                   <Textarea 
@@ -150,13 +134,14 @@ const ContactSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    whileHover={{ 
-                      scale: 1.02, 
-                      rotateX: 3,
-                      z: 10,
-                      transition: { duration: 0.2 }
+                     whileHover={{
+                             scale: 1.02,
+                             y: -2,
+                             transition: { 
+                             duration: 0.0,
+                             ease: "easeOut"
+                      }
                     }}
-                    style={{ transformStyle: 'preserve-3d' }}
                   >
                     <div className="flex-shrink-0">
                       {info.icon}
@@ -173,13 +158,14 @@ const ContactSection = () => {
             </div>
 
             <motion.div
-              whileHover={{ 
-                scale: 1.03, 
-                rotateY: 3,
-                z: 15,
-                transition: { duration: 0.3 }
-              }}
-              style={{ transformStyle: 'preserve-3d' }}
+              whileHover={{
+                             scale: 1.02,
+                             y: -2,
+                             transition: { 
+                             duration: 0.0,
+                             ease: "easeOut"
+                      }
+                    }}
             >
               <Card className="bg-card border-border hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-6">
