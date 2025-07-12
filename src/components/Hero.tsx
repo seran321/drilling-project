@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play } from 'lucide-react';
-import ThemeToggle from './ThemeToggle';
+
 import hero1 from '@/assets/hero1.jpg'
 import hero2 from '@/assets/hero2.jpg'
 import hero3 from '@/assets/hero3.jpg'
@@ -41,10 +41,7 @@ const Hero = () => {
       {/* Optional dark overlay */}
       <div className="absolute inset-0 bg-black/50 z-0"></div>
 
-      {/* Theme Toggle Button */}
-      <div className="absolute top-20 right-4 z-10">
-        <ThemeToggle />
-      </div>
+      
 
       {/* Hero Content */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-6 lg:gap-8 items-center relative z-10 text-white">

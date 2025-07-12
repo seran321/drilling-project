@@ -74,7 +74,7 @@ const ContactSection = () => {
                   <div className="space-y-2">
                     <label className="text-foreground text-sm font-medium">First Name</label>
                     <Input 
-                      placeholder="John" 
+                      placeholder="Enter Your Name" 
                       className="bg-background border-border text-foreground focus:border-primary"
                     />
                   </div>
@@ -85,7 +85,7 @@ const ContactSection = () => {
                   <label className="text-foreground text-sm font-medium">Email</label>
                   <Input 
                     type="email" 
-                    placeholder="john@company.com" 
+                    placeholder="Enter Your Email" 
                     className="bg-background border-border text-foreground focus:border-primary"
                   />
                 </div>
@@ -93,7 +93,7 @@ const ContactSection = () => {
                 <div className="space-y-2">
                   <label className="text-foreground text-sm font-medium">Subject</label>
                   <Input 
-                    placeholder="Your Company Name" 
+                    placeholder="Enter Subject" 
                     className="bg-background border-border text-foreground focus:border-primary"
                   />
                 </div>
